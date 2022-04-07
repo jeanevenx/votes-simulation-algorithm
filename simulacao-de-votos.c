@@ -8,8 +8,9 @@
 void menu();
 int main() {
 setlocale(LC_ALL, "Portuguese");
-	int escolha=0, i=1, Vevotos, Pvotos;
-	int vJF=0, vMP=0, vZF=0, pDZ=0, pSG=0, vNv=0, vNp=0;
+	int escolha=0, i=1, votosVereador, votosPrefeito;
+	int vereador_Joao_do_Frete=0, vereador_Maria_da_Pamonha=0, Vereador_Ze_da_Farmacia=0, votos_Nulos_vereador=0;
+	int prefeito_Dr_Zureta=0, prefeito_Senhor_Gomes=0, votos_Nulos_prefeito=0;
 	
  	menu();
  	scanf("%d",&escolha);
@@ -26,26 +27,26 @@ setlocale(LC_ALL, "Portuguese");
 				printf("222 - Vereador Maria da Pamonha\n");
 				printf("333 - Vereador Ze da Farmacia\n");
 				printf("444 - Voto Nulo\n-----------------------------------\n");
-				scanf("%d", &Vevotos);
+				scanf("%d", &votosVereador);
 				fflush(stdin);
 
-				switch(Vevotos)
+				switch(votosVereador)
 				{
 				 	case 111:
 						printf("Voto computado!\n");
-						vJF = vJF + 1;	
+						vereador_Joao_do_Frete = vereador_Joao_do_Frete + 1;	
 						break;
 					case 222:
 					printf("Voto computado!\n");
-						vMP = vMP + 1;
+						vereador_Maria_da_Pamonha = vereador_Maria_da_Pamonha + 1;
 						break;
 					case 333:
 						printf("Voto computado!\n");
-						vZF = vZF + 1;
+						Vereador_Ze_da_Farmacia = Vereador_Ze_da_Farmacia + 1;
 						break;
 					case 444:
 						printf("Voto computado!\n");
-						vNv = vNv + 1;
+						votos_Nulos_vereador = votos_Nulos_vereador + 1;
 						break;
 					default:
 						printf("Número inválido, seu voto foi inválidado.\n\n");
@@ -55,32 +56,32 @@ setlocale(LC_ALL, "Portuguese");
 						system("cls");
 						
 				}
-					if ((Vevotos == 111) || (Vevotos == 222) || (Vevotos == 333) || (Vevotos == 444))
+					if ((votosVereador == 111) || (votosVereador == 222) || (votosVereador == 333) || (votosVereador == 444))
 					{
 					
 						printf("-----------------------------------\nQual seu voto para Prefeito?\n");
 						printf("11 - Prefeito Dr. Zureta\n");
 						printf("22 - Prefeito Senhor Gomes\n");
 						printf("44 - Voto Nulo\n-----------------------------------\n");
-						scanf("%d", &Pvotos);  
+						scanf("%d", &votosPrefeito);  
 						fflush(stdin);
 		
-						switch(Pvotos)
+						switch(votosPrefeito)
 						{
 						 	case 11:
 								printf("Voto computado!\n");
 								printf("---------------------------\n");
-								pDZ = pDZ + 1;
+								prefeito_Dr_Zureta = prefeito_Dr_Zureta + 1;
 								break;
 							case 22:
 								printf("Voto computado!\n");
 								printf("---------------------------\n");
-								pSG = pSG + 1;
+								prefeito_Senhor_Gomes = prefeito_Senhor_Gomes + 1;
 								break;
 							case 44:
 								printf("Voto computado!\n");
 								printf("---------------------------\n");
-								vNp = vNp + 1;
+								votos_Nulos_prefeito = votos_Nulos_prefeito + 1;
 								break;
 							default:
 								printf("Número inválido, seu voto foi inválidado.\n\n");
@@ -92,8 +93,8 @@ setlocale(LC_ALL, "Portuguese");
 						}
 						}
 				
-				if (((Vevotos == 111) || (Vevotos == 222) || (Vevotos == 333) || (Vevotos == 444)) && ((Pvotos == 11) ||
-				   (Pvotos == 22) || (Pvotos == 44)))
+				if (((votosVereador == 111) || (votosVereador == 222) || (votosVereador == 333) || (votosVereador == 444)) && ((votosPrefeito == 11) ||
+				   (votosPrefeito == 22) || (votosPrefeito == 44)))
 				{
 					menu();
 					scanf("%d",&escolha);
@@ -106,15 +107,15 @@ setlocale(LC_ALL, "Portuguese");
 				//Apuração dos votos
 				printf("Resultado final...\n\n");
 				printf("---------------------------\nApuraçâo vereador.\n");
-				printf("Vereador Joao do Frete:%d votos\n", vJF);
-				printf("Vereador Maria da Pamonha:%d votos\n", vMP);
-				printf("Vereador Ze da Farmacia:%d votos\n", vZF);
-				printf("Voto Nulo:%d votos\n", vNv);
+				printf("Vereador Joao do Frete:%d votos\n", vereador_Joao_do_Frete);
+				printf("Vereador Maria da Pamonha:%d votos\n", vereador_Maria_da_Pamonha);
+				printf("Vereador Ze da Farmacia:%d votos\n", Vereador_Ze_da_Farmacia);
+				printf("Voto Nulo:%d votos\n", votos_Nulos_vereador);
 				printf("---------------------------\n");
 				printf("Apuraçâo prefeitos.\n\n");
-				printf("Prefeito Dr. Zureta:%d votos\n", pDZ);
-				printf("Prefeito Senhor Gomes:%d votos\n", pSG);
-				printf("Voto Nulo:%d votos\n", vNp);
+				printf("Prefeito Dr. Zureta:%d votos\n", prefeito_Dr_Zureta);
+				printf("Prefeito Senhor Gomes:%d votos\n", prefeito_Senhor_Gomes);
+				printf("Voto Nulo:%d votos\n", votos_Nulos_prefeito);
 				printf("---------------------------\n");
 				menu();
 				scanf("%d",&escolha);
